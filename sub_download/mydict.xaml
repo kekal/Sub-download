@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero">
+	<!-- Resource dictionary entries should be defined here. -->
+	<Style x:Key="mybutton" TargetType="{x:Type Button}">
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Padding" Value="1"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Themes:ButtonChrome x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}"    SnapsToDevicePixels="true" Background="#FF4D4D4D">
+						<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+							<TextElement.Foreground>
+								<Brush>white</Brush>
+							</TextElement.Foreground>
+						</ContentPresenter>
+					</Themes:ButtonChrome>
+					<ControlTemplate.Triggers>
+						<Trigger Property="ToggleButton.IsChecked" Value="true">
+							<Setter Property="Background" TargetName="Chrome" Value="#FFA5A5A5"/>
+							<Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF2E2E2E"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" TargetName="Chrome" Value="#FFA5A5A5"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Background" TargetName="Chrome" Value="#FFE2E2E2"/>
+							<Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF2E2E2E"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>
